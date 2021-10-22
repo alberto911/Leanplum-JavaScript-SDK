@@ -99,7 +99,7 @@ export default class Leanplum {
       * inconsistent state or user experience.
       */
     static clearUserContent(): void;
-    static registerTemplate(options: MessageTemplateOptions): void;
+    static defineAction(options: MessageTemplateOptions): void;
     static applyQueue(queue: Array<{
         name: string;
         args: Array<any>;
@@ -173,6 +173,10 @@ export enum ActionParameterType {
   Action = "action",
   Unknown = ""
 }
+export enum MessageKind {
+  Action = 2,
+  Template = 3
+}
 export type ActionParameter = {
   name: string;
   type: ActionParameterType;
@@ -180,6 +184,7 @@ export type ActionParameter = {
 };
 export type MessageTemplateOptions = {
   name: string;
+  kind?: MessageKind;
   args: Array<ActionParameter>;
 };
 
