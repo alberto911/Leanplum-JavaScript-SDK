@@ -205,7 +205,7 @@ export default class LeanplumInternal {
   defineAction(options: MessageTemplateOptions): void {
     this._varCache.registerActionDefinition({
       kind: MessageKind.Template,
-      ...options
+      ...options,
     })
   }
 
